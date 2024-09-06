@@ -551,14 +551,14 @@ static void WIIU_JoystickUpdate(SDL_Joystick *joystick)
 		case WPAD_EXT_NUNCHUK:
 		case WPAD_EXT_MPLUS_NUNCHUK: {
 			for(int i = 0; i < joystick->nbuttons; i++)
-				if ((kpad.trigger | (kpad.nunchuck.trigger << 16)) & nunchuk_button_map[i])
+				if ((kpad.trigger | (kpad.nunchuk.trigger << 16)) & nunchuk_button_map[i])
 					SDL_PrivateJoystickButton(joystick, (Uint8)i, SDL_PRESSED);
 			for(int i = 0; i < joystick->nbuttons; i++)
-				if ((kpad.release | (kpad.nunchuck.release << 16)) & nunchuk_button_map[i])
+				if ((kpad.release | (kpad.nunchuk.release << 16)) & nunchuk_button_map[i])
 					SDL_PrivateJoystickButton(joystick, (Uint8)i, SDL_RELEASED);
 
-			x1 = (int16_t) ((kpad.nunchuck.stick.x) * 0x7ff0);
-			y1 = (int16_t) -((kpad.nunchuck.stick.y) * 0x7ff0);
+			x1 = (int16_t) ((kpad.nunchuk.stick.x) * 0x7ff0);
+			y1 = (int16_t) -((kpad.nunchuk.stick.y) * 0x7ff0);
 			SDL_PrivateJoystickAxis(joystick, 0, x1);
 			SDL_PrivateJoystickAxis(joystick, 1, y1);
 			break;
