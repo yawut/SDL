@@ -455,8 +455,8 @@ static void WIIU_JoystickUpdate(SDL_Joystick *joystick)
 				if (kpad.release & wiimote_button_map[i])
 					SDL_PrivateJoystickButton(joystick, (Uint8)i, SDL_RELEASED);
 
-			x1 = (int16_t) ((kpad.nunchuck.stick.x) * 0x7ff0);
-			y1 = (int16_t) -((kpad.nunchuck.stick.y) * 0x7ff0);
+			x1 = (int16_t) ((kpad.nunchuk.stick.x) * 0x7ff0);
+			y1 = (int16_t) -((kpad.nunchuk.stick.y) * 0x7ff0);
 			SDL_PrivateJoystickAxis(joystick, 0, x1);
 			SDL_PrivateJoystickAxis(joystick, 1, y1);
 			break;
